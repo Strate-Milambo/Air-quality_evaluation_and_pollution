@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{lscape}
+
+\title{Air Quality and Pollution Assessment in RDC}
+\author{Stratégie Milambo Paul}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\subsection{Mise en contexte}
+La qualité de l'air est un facteur essentiel influençant la santé humaine et l'environnement. La pollution atmosphérique peut entraîner des maladies respiratoires et cardiovasculaires, ainsi que des effets néfastes sur l'environnement. Il est crucial de comprendre les facteurs influençant la qualité de l'air pour mettre en place des stratégies efficaces de gestion.
+
+\subsection{Problématique}
+Quels sont les facteurs influençant la pollution ? Peut-on prédire la qualité de l'air avec précision à partir de données environnementales ? Cette étude tente de répondre à ces questions et d'explorer des solutions pour réduire l'impact de la pollution atmosphérique sur la population.
+
+\subsection{Objectifs et Hypothèse}
+L'objectif est de développer un modèle de machine learning capable de prédire la qualité de l'air en RDC à partir des données disponibles. L'hypothèse est qu'il est possible de prédire la qualité de l'air de manière fiable en utilisant des variables telles que la température, le CO2, le NO2 et le PM2.5.
+
+\section{Analyse des données}
+\subsection{Présentation du dataset}
+Le dataset utilisé est "Air Quality and Pollution Assessment" disponible sur Kaggle. Il contient des mesures des différents polluants et des paramètres environnementaux tels que :
+\begin{itemize}
+    \item Température (°C)
+    \item Humidité (%)
+    \item Concentration PM2.5 (µg/m³)
+    \item Concentration PM10 (µg/m³)
+    \item Concentration de NO2 (ppb)
+    \item Concentration de SO2 (ppb)
+    \item Concentration de CO (ppm)
+    \item Proximité des zones industrielles (km)
+    \item Densité de population (habitants/km²)
+\end{itemize}
+
+\subsection{Exploration et prétraitement}
+Le nettoyage des données a révélé la présence de quelques outliers, notamment dans les concentrations de PM2.5 et NO2. Des techniques de traitement comme l'écart interquartile (IQR) ont été utilisées pour les éliminer. La normalisation a été effectuée à l'aide de \texttt{StandardScaler} pour garantir une bonne convergence des modèles de machine learning.
+
+\section{Modélisation Machine Learning}
+\subsection{Choix du modèle}
+Les modèles suivants ont été comparés :
+\begin{itemize}
+    \item Régression linéaire
+    \item Random Forest
+    \item Réseaux de neurones
+    \item Support Vector Machines (SVM)
+\end{itemize}
+
+\subsection{Entraînement et évaluation}
+Les modèles ont été évalués en utilisant des métriques comme le F1 score, le Recall et la précision. La validation croisée a été réalisée pour améliorer la généralisation du modèle.
+
+\subsection{Optimisation}
+Les hyperparamètres ont été ajustés à l'aide de GridSearchCV et RandomizedSearchCV. Le feature engineering a été appliqué pour extraire les informations pertinentes.
+
+\section{Déploiement sur Streamlit}
+\subsection{Présentation de l'interface}
+L'interface interactive sur Streamlit permet aux utilisateurs d'entrer des valeurs et d'obtenir des prédictions sur la qualité de l'air. Elle offre :
+\begin{itemize}
+    \item Une carte interactive affichant les niveaux de pollution par région
+    \item Un formulaire permettant d'entrer des données et de générer une prédiction
+    \item Une visualisation des tendances de pollution selon les paramètres sélectionnés
+\end{itemize}
+
+\subsection{Mise en œuvre}
+Le modèle a été intégré dans Streamlit pour afficher les prédictions et générer des graphiques interactifs. Un système de recommandations a également été ajouté.
+
+\section{Résultats et Discussion}
+\subsection{Analyse des performances}
+Les différents modèles ont été comparés pour identifier le plus performant. La comparaison a montré que le modèle Random Forest avait les meilleures performances en termes de précision.
+
+\subsection{Limites et perspectives}
+Les données disponibles en RDC sont limitées. À l'avenir, il serait possible d'intégrer des données satellites et des capteurs IoT pour améliorer les prédictions. Un système d'alerte en temps réel pourrait également être développé.
+
+\section{Conclusion}
+Ce travail a permis de développer un modèle de machine learning capable de prédire la qualité de l'air en RDC avec des données environnementales. Des améliorations futures peuvent inclure l'intégration de nouvelles sources de données et le déploiement d'alertes en temps réel.
+
+\section{Outils utilisés}
+\begin{itemize}
+    \item Python : Pandas, Scikit-Learn, Numpy
+    \item Streamlit : Interface utilisateur interactive
+    \item Matplotlib/Seaborn : Visualisation des données
+    \item Kaggle : Pour les différents datasets
+\end{itemize}
+
+\end{document}
